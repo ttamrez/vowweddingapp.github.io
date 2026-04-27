@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Vow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream:  #FAF8F5;
+      --white:  #FFFFFF;
+      --ink:    #1C1917;
+      --muted:  #78716C;
+      --blush:  #C9A99A;
+      --border: #E8E2DB;
+      --gold:   #B8956A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      padding: 10rem 2rem 4rem;
+      max-width: 760px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .page-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    .content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 3.5rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .content p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .content strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .content a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .content a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    .content ul, .content ol {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .content li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 0.35rem;
+    }
+
+    .content li strong {
+      color: var(--ink);
+    }
+
+    .content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    /* ── Do-not list ── */
+    .do-not {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .do-not li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Table ── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    thead tr {
+      background: var(--white);
+    }
+
+    th {
+      font-weight: 500;
+      color: var(--ink);
+      text-align: left;
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    td {
+      color: var(--muted);
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(250, 248, 245, 0.6);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-link {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Vow</a>
+    <a href="index.html" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <div class="page-meta">
+      <span>Last Updated: April 27, 2026</span>
+      <span>Effective Date: April 27, 2026</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h2>Introduction</h2>
+    <p>
+      Vow – Wedding Planner ("Vow," "we," "us," or "our") is a wedding planning application developed for iOS.
+      This Privacy Policy explains how we collect, use, store, and share information when you use our app.
+    </p>
+    <p>
+      By using Vow, you agree to the collection and use of information as described in this policy.
+      If you do not agree with this policy, please do not use the app.
+    </p>
+
+    <hr />
+
+    <h2>1. Information We Collect</h2>
+
+    <h3>1.1 Information You Provide Directly</h3>
+    <p>When you use Vow, you may provide the following information:</p>
+    <ul>
+      <li><strong>Account credentials:</strong> Email address and password used to create an account and enable cloud sync.</li>
+      <li><strong>Partner names:</strong> The names of both partners in the couple.</li>
+      <li><strong>Wedding details:</strong> Wedding date, engagement date, wedding location (city or venue name), estimated guest count, and wedding style preference.</li>
+      <li><strong>Planning data:</strong> Milestones, to-do items, completion status, custom notes, and phase information you create within the app.</li>
+      <li><strong>Budget and expense data:</strong> Your total wedding budget and individual expense entries, including amounts, categories, dates, and notes.</li>
+    </ul>
+
+    <h3>1.2 Information Collected Automatically</h3>
+    <ul>
+      <li><strong>Device identifiers:</strong> Firebase Authentication assigns an anonymous unique identifier (UID) to your account, used to associate your wedding plan with your account.</li>
+      <li><strong>Invite and collaboration codes:</strong> If you share your plan with a partner, a randomly generated 6-character invite code is created and stored.</li>
+    </ul>
+
+    <h3>1.3 Information We Do NOT Collect</h3>
+    <p>Vow does <strong>not</strong> collect:</p>
+    <ul class="do-not">
+      <li>Precise location data or GPS coordinates</li>
+      <li>Photos, camera, or microphone data</li>
+      <li>Contacts or address book information</li>
+      <li>Health or fitness data</li>
+      <li>Financial account numbers, credit card numbers, or payment information</li>
+      <li>Social Security numbers or government-issued ID numbers</li>
+      <li>Biometric data (Face ID or Touch ID authentication is handled entirely by iOS and is never shared with us)</li>
+    </ul>
+
+    <hr />
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li><strong>Provide and personalize the app:</strong> Generate a customized wedding planning roadmap, timeline, and milestone recommendations based on your wedding date, guest count, and style.</li>
+      <li><strong>Enable cloud sync and collaboration:</strong> Sync your wedding plan across devices and share it with your partner in real time via Firebase Firestore.</li>
+      <li><strong>Send local notifications:</strong> Schedule on-device reminders for upcoming milestones (3 days before and day-of). These notifications are generated locally on your device and do not transmit personal data to our servers.</li>
+      <li><strong>Calendar integration:</strong> With your permission, add milestones as events to your iOS Calendar. This requires read-write access to the calendar you select.</li>
+      <li><strong>Support account management:</strong> Allow you to sign in, sign out, reset your password, and manage your account.</li>
+      <li><strong>Sync with Google Drive (optional):</strong> If you connect Google Drive, we access a list of your Drive files for in-app reference. We do not upload your wedding data to Google Drive.</li>
+    </ul>
+
+    <p>We do <strong>not</strong> use your data for:</p>
+    <ul class="do-not">
+      <li>Advertising or marketing to third parties</li>
+      <li>Behavioral profiling or analytics tracking</li>
+      <li>Sale to data brokers or other third parties</li>
+    </ul>
+
+    <hr />
+
+    <h2>3. How We Share Your Information</h2>
+    <p>We do not sell, rent, or trade your personal information. We share information only as described below:</p>
+
+    <h3>3.1 Firebase (Google LLC)</h3>
+    <p>
+      Vow uses Firebase, a platform provided by Google LLC, to power account authentication and cloud synchronization.
+      When you create an account and enable sync, the following data is transmitted to and stored on Firebase servers:
+    </p>
+    <ul>
+      <li>Partner names</li>
+      <li>Wedding date, engagement date, location, guest count, and style preference</li>
+      <li>Budget amount and expense entries</li>
+      <li>Milestones and phases</li>
+      <li>Account email address and Firebase UID</li>
+      <li>Invite and collaborator codes</li>
+    </ul>
+    <p>
+      Firebase services used include Firebase Authentication and Cloud Firestore. Firebase operates under Google's Privacy Policy,
+      which can be found at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
+      Firebase stores data in Google Cloud infrastructure. Data may be stored and processed in the United States or other countries where Google operates data centers.
+    </p>
+
+    <h3>3.2 Google (Google Drive – Optional)</h3>
+    <p>
+      If you choose to connect Google Drive, we use Google's OAuth 2.0 protocol to request access to your Drive files.
+      We read file metadata (names and identifiers) to display them in-app. We do not write to, upload to, or modify your Google Drive.
+      Your Google account credentials are handled entirely by Google and are never stored by Vow.
+      You can revoke this access at any time from your Google Account settings.
+    </p>
+
+    <h3>3.3 Legal Requirements</h3>
+    <p>
+      We may disclose your information if required to do so by law or in response to a valid legal process,
+      such as a subpoena, court order, or government request.
+    </p>
+
+    <h3>3.4 Partner Sharing (User-Initiated)</h3>
+    <p>
+      When you share an invite code with another person, they can link their account to your wedding plan and view and edit
+      all shared planning data. You control whether to share your plan by choosing whether to generate and distribute an invite code.
+    </p>
+
+    <hr />
+
+    <h2>4. Data Storage and Security</h2>
+
+    <h3>4.1 On-Device Storage</h3>
+    <p>
+      Your wedding data is stored locally on your device using SwiftData (backed by SQLite).
+      iOS encrypts this database by default using AES encryption, tied to your device passcode.
+    </p>
+
+    <h3>4.2 Cloud Storage</h3>
+    <p>
+      When you create an account, data is also stored in Firebase Cloud Firestore.
+      All data transmitted between the app and Firebase is encrypted in transit using TLS/HTTPS.
+    </p>
+
+    <h3>4.3 Security Measures</h3>
+    <p>We take reasonable steps to protect your data, including:</p>
+    <ul>
+      <li>Encrypted local storage via iOS data protection</li>
+      <li>Encrypted transmission via HTTPS/TLS to Firebase</li>
+      <li>Firebase Authentication to ensure only authorized users can access your plan</li>
+    </ul>
+    <p>
+      No method of transmission over the internet or electronic storage is 100% secure.
+      While we strive to use commercially acceptable means to protect your information, we cannot guarantee absolute security.
+    </p>
+
+    <hr />
+
+    <h2>5. Data Retention</h2>
+    <ul>
+      <li><strong>On-device data</strong> is retained until you delete the app or your wedding plan data within the app.</li>
+      <li><strong>Cloud data</strong> is retained in Firebase as long as your account exists. You may request deletion of your cloud data by contacting us (see Section 9).</li>
+      <li><strong>Account data</strong> is retained until you delete your account.</li>
+    </ul>
+
+    <hr />
+
+    <h2>6. Your Rights and Choices</h2>
+
+    <h3>6.1 Access and Correction</h3>
+    <p>You can view and update your wedding details, milestones, and expenses directly within the app at any time.</p>
+
+    <h3>6.2 Data Deletion</h3>
+    <p>
+      You may request deletion of your account and all associated cloud data by contacting us at the address below.
+      Locally stored data can be removed by deleting the app from your device.
+    </p>
+
+    <h3>6.3 Notifications</h3>
+    <p>
+      You can enable or disable local push notifications at any time through your iOS device settings
+      (Settings &gt; Notifications &gt; Vow).
+    </p>
+
+    <h3>6.4 Calendar Access</h3>
+    <p>
+      You can revoke Vow's calendar access at any time in iOS Settings &gt; Privacy &amp; Security &gt; Calendars.
+    </p>
+
+    <h3>6.5 Google Drive Access</h3>
+    <p>
+      You can revoke Vow's access to Google Drive at any time by visiting your Google Account's connected apps settings.
+    </p>
+
+    <h3>6.6 Cloud Sync</h3>
+    <p>
+      Vow functions fully offline without creating an account. If you do not sign in, no data is transmitted to Firebase.
+    </p>
+
+    <hr />
+
+    <h2>7. Children's Privacy</h2>
+    <p>
+      Vow is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13.
+      If you believe a child under 13 has provided us with personal information, please contact us and we will take steps to delete such information.
+    </p>
+
+    <hr />
+
+    <h2>8. California Privacy Rights (CCPA)</h2>
+    <p>If you are a California resident, you have the right to:</p>
+    <ul>
+      <li>Know what personal information we collect, use, disclose, and sell.</li>
+      <li>Request deletion of your personal information.</li>
+      <li>Opt out of the sale of your personal information (note: we do not sell personal information).</li>
+      <li>Non-discrimination for exercising your rights.</li>
+    </ul>
+    <p>To exercise these rights, contact us using the information in Section 9.</p>
+
+    <hr />
+
+    <h2>9. Contact Us</h2>
+    <p>
+      If you have questions or concerns about this Privacy Policy or wish to request access to, correction of, or
+      deletion of your personal data, please contact us at:
+    </p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:VowWeddingApp@gmail.com">VowWeddingApp@gmail.com</a></li>
+      <li><strong>App:</strong> Vow – Wedding Planner</li>
+      <li><strong>Bundle ID:</strong> com.weddingapp.app</li>
+    </ul>
+
+    <hr />
+
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating
+      the "Last Updated" date at the top of this policy. We encourage you to review this policy periodically.
+      Your continued use of the app after any changes constitutes your acceptance of the updated policy.
+    </p>
+
+    <hr />
+
+    <h2>11. App Store Data Disclosure Summary</h2>
+    <p>The following is a summary of data practices as required by Apple for App Store disclosure:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Collected</th>
+            <th>Linked to Identity</th>
+            <th>Used for Tracking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Yes (partner names)</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Email Address</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>User ID</td>
+            <td>Yes (Firebase UID)</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Other User Content (wedding plan, milestones, expenses)</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Other Financial Info (budget amounts)</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Coarse Location (city/venue name as text)</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Crash Data</td>
+            <td>No</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Performance Data</td>
+            <td>No</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Advertising Data</td>
+            <td>No</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Data Not Collected:</strong> Precise Location, Health &amp; Fitness, Sensitive Info, Contacts, Browsing History, Search History, Diagnostics (beyond crashes), Payment Info.</p>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Vow</span>
+    <div class="footer-links">
+      <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+      <span class="footer-copy">&copy; 2026 Vow. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
