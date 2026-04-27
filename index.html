@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vow — Plan Your Wedding, Simply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream:   #FAF8F5;
+      --white:   #FFFFFF;
+      --ink:     #1C1917;
+      --muted:   #78716C;
+      --blush:   #C9A99A;
+      --border:  #E8E2DB;
+      --gold:    #B8956A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blush);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-cta:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      max-width: 14ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 38ch;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 1px;
+      height: 5rem;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
+    /* ── Section shared ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 46ch;
+      line-height: 1.9;
+    }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 5rem;
+    }
+
+    .feature-card {
+      background: var(--cream);
+      padding: 3rem 2.5rem;
+      transition: background 0.25s;
+    }
+
+    .feature-card:hover {
+      background: var(--white);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.75rem;
+      opacity: 0.85;
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    /* ── How it works ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem 4rem;
+      margin-top: 4rem;
+    }
+
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── Quote ── */
+    .quote-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: 100%;
+      background: var(--white);
+    }
+
+    .quote-section blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      max-width: 32ch;
+      margin: 0 auto 1.5rem;
+      line-height: 1.45;
+    }
+
+    .quote-attr {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blush);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 8rem 2rem;
+      max-width: 100%;
+    }
+
+    .cta-section .section-label {
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section .section-title {
+      max-width: 18ch;
+      margin: 0 auto 1rem;
+    }
+
+    .cta-section .section-body {
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Vow</a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <p class="hero-eyebrow">Your wedding, beautifully planned</p>
+    <h1 class="hero-headline">Plan your big day with <em>clarity</em></h1>
+    <p class="hero-sub">
+      Vow gives couples a shared roadmap and smart budget to plan every detail of
+      their wedding — without the overwhelm.
+    </p>
+    <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    <p class="hero-note">Free to start &nbsp;·&nbsp; No credit card required</p>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- Features -->
+  <section>
+    <p class="section-label">What Vow does</p>
+    <h2 class="section-title">Everything in one place,<br />nothing left behind</h2>
+    <p class="section-body">
+      Two tools, built for couples. A living roadmap to track every milestone,
+      and a budget that keeps you honest from venue to florals.
+    </p>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="36" height="32" rx="4" stroke="#B8956A" stroke-width="1.5"/>
+          <line x1="6" y1="18" x2="42" y2="18" stroke="#B8956A" stroke-width="1.5"/>
+          <line x1="16" y1="6" x2="16" y2="14" stroke="#B8956A" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="32" y1="6" x2="32" y2="14" stroke="#B8956A" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="16" cy="28" r="2" fill="#C9A99A"/>
+          <circle cx="24" cy="28" r="2" fill="#C9A99A"/>
+          <circle cx="32" cy="28" r="2" fill="#C9A99A"/>
+          <circle cx="16" cy="36" r="2" fill="#C9A99A"/>
+          <circle cx="24" cy="36" r="2" fill="#C9A99A"/>
+        </svg>
+        <h3 class="feature-title">Your Wedding Roadmap</h3>
+        <p class="feature-desc">
+          A milestone-driven timeline tailored to your wedding date. From booking
+          your venue to the final RSVP, Vow surfaces what needs your attention —
+          week by week, together.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="18" stroke="#B8956A" stroke-width="1.5"/>
+          <path d="M24 12v3M24 33v3M15 18l2.6 1.5M30.4 28.5L33 30M15 30l2.6-1.5M30.4 19.5L33 18" stroke="#B8956A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 24c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#C9A99A" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="1.5" fill="#B8956A"/>
+        </svg>
+        <h3 class="feature-title">Smart Budget Tracker</h3>
+        <p class="feature-desc">
+          Set your total budget, allocate by category, and log every expense in
+          real time. Vow shows you exactly where you stand so there are no
+          surprises on the big day — or the invoice.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- How it works -->
+  <section>
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Start planning in minutes</h2>
+    <div class="steps">
+      <div>
+        <p class="step-number">01</p>
+        <p class="step-title">Create your wedding profile</p>
+        <p class="step-desc">Enter your date, location, and guest count. Vow generates a personalised planning timeline instantly.</p>
+      </div>
+      <div>
+        <p class="step-number">02</p>
+        <p class="step-title">Invite your partner</p>
+        <p class="step-desc">Planning is better together. Both of you get a shared view so everyone stays on the same page.</p>
+      </div>
+      <div>
+        <p class="step-number">03</p>
+        <p class="step-title">Follow the roadmap</p>
+        <p class="step-desc">Check off milestones, log deposits, and let Vow surface what's next — so nothing slips through.</p>
+      </div>
+      <div>
+        <p class="step-number">04</p>
+        <p class="step-title">Stay on budget</p>
+        <p class="step-desc">Add expenses as they come and watch your live budget adjust. Know your remaining balance at any moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <div class="quote-section">
+    <blockquote>
+      "Wedding planning shouldn't feel like a second job. It should feel like the beginning of a story."
+    </blockquote>
+    <p class="quote-attr">The Vow Team</p>
+  </div>
+
+  <!-- CTA / Waitlist -->
+  <section class="cta-section" id="waitlist">
+    <p class="section-label">Coming soon</p>
+    <h2 class="section-title">Be the first to say <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold)">Vow</em></h2>
+    <p class="section-body">
+      We're opening early access to a limited number of couples. Join the waitlist and get notified the moment we launch.
+    </p>
+    <a href="mailto:hello@vowapp.co?subject=Waitlist" class="btn-primary">Join the Waitlist</a>
+    <p class="hero-note" style="margin-top:1.25rem;">We'll never share your details with anyone.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">Vow</span>
+    <span class="footer-copy">&copy; 2026 Vow. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
