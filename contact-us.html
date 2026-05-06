@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Vow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream:   #FAF8F5;
+      --white:   #FFFFFF;
+      --ink:     #1C1917;
+      --muted:   #78716C;
+      --blush:   #C9A99A;
+      --border:  #E8E2DB;
+      --gold:    #B8956A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-back:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      padding: 10rem 2rem 4rem;
+      max-width: 760px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 46ch;
+      line-height: 1.9;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 8rem;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .contact-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .contact-card-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 40ch;
+      margin: 0 auto 2.5rem;
+      line-height: 1.9;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .contact-email-hint {
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Topics grid ── */
+    .topics-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .topic-card {
+      background: var(--cream);
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+    }
+
+    .topic-card:hover {
+      background: var(--white);
+    }
+
+    .topic-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .topic-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-link {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Vow</a>
+    <a href="index.html" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">Get in touch</p>
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-subtitle">
+      We'd love to hear from you. Whether you have a question about the app, need
+      support, or just want to say hello — our team is here to help.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <div class="contact-card">
+      <svg class="contact-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="14" width="44" height="30" rx="5" stroke="#B8956A" stroke-width="1.5"/>
+        <path d="M6 19l22 15 22-15" stroke="#B8956A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h2 class="contact-card-title">Send us a message</h2>
+      <p class="contact-card-desc">
+        Tap the button below to open your email client and reach us directly.
+        We typically respond within one business day.
+      </p>
+      <a href="mailto:VowWeddingApp@gmail.com?subject=Hello from Vow" class="btn-primary">Contact Us</a>
+      <p class="contact-email-hint">VowWeddingApp@gmail.com</p>
+    </div>
+
+    <p class="topics-label">Common topics</p>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <p class="topic-title">App Support</p>
+        <p class="topic-desc">Bug reports, feature questions, or trouble getting started.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Account & Data</p>
+        <p class="topic-desc">Access, correction, or deletion of your personal information.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Early Access</p>
+        <p class="topic-desc">Questions about joining the waitlist or partnership opportunities.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Privacy</p>
+        <p class="topic-desc">Concerns or questions about how we handle your data.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Vow</span>
+    <div class="footer-links">
+      <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+      <a href="contact-us.html" class="footer-link">Contact Us</a>
+      <span class="footer-copy">&copy; 2026 Vow. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
